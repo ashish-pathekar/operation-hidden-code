@@ -1,0 +1,276 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#080d13">
+    <meta name="description" content="Operation Hidden Code - AEGIS Systems classified puzzle mission.">
+
+    <title>Operation Hidden Code | AEGIS Systems</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Animated background digits -->
+    <div id="floaters"></div>
+
+    <!-- Header -->
+    <header>
+
+        <div class="brand">
+            <h2>AEGIS Systems</h2>
+            <p class="small">ADVANCED SECURITY NETWORK</p>
+        </div>
+
+        <div class="online">
+            <span class="pulse"></span>
+            SYSTEM ONLINE
+        </div>
+
+    </header>
+
+    <!-- Main wrapper -->
+    <div class="wrapper">
+
+        <!-- Page title -->
+        <section class="title-area">
+
+            <p class="small">CLASSIFIED FILE #HC-07</p>
+
+            <h1>
+                Operation
+                <span id="title-word">Hidden Code</span>
+            </h1>
+
+            <p>
+                Welcome, agent. Solve 3 connected puzzles in the terminal.
+                Each answer is required to unlock the next security layer.
+            </p>
+
+        </section>
+
+        <!-- Dashboard -->
+        <section class="dashboard">
+
+            <div class="cards">
+
+                <div class="card">
+                    <p class="label">TOTAL SCORE</p>
+                    <p class="value" id="score">0</p>
+                </div>
+
+                <div class="card">
+                    <p class="label">MISSION TIME</p>
+                    <p class="value" id="clock">00:00</p>
+                </div>
+
+                <div class="card">
+                    <p class="label">PUZZLES SOLVED</p>
+                    <p class="value">
+                        <span id="solved">0</span> / 3
+                    </p>
+                </div>
+
+                <div class="card">
+                    <p class="label">HINTS USED</p>
+                    <p class="value" id="hints-used">0</p>
+                </div>
+
+            </div>
+
+            <!-- Mission progress -->
+            <div class="progress-section">
+
+                <div class="progress-heading">
+                    <span class="small">MISSION PROGRESS</span>
+                    <span class="small">3 SECURITY LAYERS</span>
+                </div>
+
+                <div class="bar">
+                    <div id="bar-fill"></div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Main content -->
+        <main class="main-area">
+
+            <!-- Left panel -->
+            <section class="layers">
+
+                <div class="panel-heading">
+                    <h3>Security Layers</h3>
+                    <span class="small">ACCESS CONTROL</span>
+                </div>
+
+                <p class="small">
+                    Click the active layer to access its puzzle.
+                </p>
+
+                <!-- Layer 1 -->
+                <div class="layer" id="layer1">
+
+                    <span class="icon">🔒</span>
+
+                    <div>
+                        <b>Layer 1</b>
+                        <p>Riddle Challenge</p>
+                    </div>
+
+                    <span class="tag">LOCKED</span>
+
+                </div>
+
+                <!-- Layer 2 -->
+                <div class="layer" id="layer2">
+
+                    <span class="icon">🔒</span>
+
+                    <div>
+                        <b>Layer 2</b>
+                        <p>Number Challenge</p>
+                    </div>
+
+                    <span class="tag">LOCKED</span>
+
+                </div>
+
+                <!-- Layer 3 -->
+                <div class="layer" id="layer3">
+
+                    <span class="icon">🔒</span>
+
+                    <div>
+                        <b>Layer 3</b>
+                        <p>Cipher Challenge</p>
+                    </div>
+
+                    <span class="tag">LOCKED</span>
+
+                </div>
+
+                <!-- Quick commands -->
+                <div class="commands-section">
+
+                    <div class="panel-heading">
+                        <h3>Quick Commands</h3>
+                        <span class="small">TERMINAL TOOLS</span>
+                    </div>
+
+                    <div class="quick">
+
+                        <button type="button" data-cmd="help">
+                            help
+                        </button>
+
+                        <button type="button" data-cmd="scan">
+                            scan
+                        </button>
+
+                        <button type="button" data-cmd="puzzle">
+                            puzzle
+                        </button>
+
+                        <button type="button" data-cmd="hint">
+                            hint
+                        </button>
+
+                        <button type="button" data-cmd="status">
+                            status
+                        </button>
+
+                        <button type="button" data-cmd="unlock">
+                            unlock
+                        </button>
+
+                        <button type="button" data-cmd="reset">
+                            reset
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- Right panel: Terminal -->
+            <section class="terminal" id="terminal">
+
+                <!-- Terminal header -->
+                <div class="term-top">
+
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+
+                    <span class="term-title">
+                        agent@aegis: terminal
+                    </span>
+
+                    <span class="small terminal-status">
+                        ENCRYPTED
+                    </span>
+
+                </div>
+
+                <!-- Terminal output -->
+                <div id="output"></div>
+
+                <!-- Command input -->
+                <form id="command-form">
+
+                    <span class="prompt">
+                        agent@aegis:~$
+                    </span>
+
+                    <input
+                        type="text"
+                        id="command-input"
+                        autocomplete="off"
+                        autofocus
+                        aria-label="Enter terminal command"
+                    >
+
+                    <span class="cursor">_</span>
+
+                </form>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            MADE BY ASHISH PATHAKAR |
+            RAMDEOBABA UNIVERSITY
+        </p>
+
+        <p class="small">
+            AEGIS SECURITY NETWORK © 2026
+        </p>
+
+    </footer>
+
+    <!-- JavaScript - unchanged -->
+    <script src="script.js"></script>
+
+</body>
+</html>
